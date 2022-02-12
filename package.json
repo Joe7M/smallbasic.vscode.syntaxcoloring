@@ -1,0 +1,47 @@
+{
+    "name": "lang-smallbasic",
+    "displayName": "lang-SmallBASIC",
+    "description": "Syntax coloring for SmallBASIC",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.35.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mudhairless/vscode-freebasic"
+    },
+    "publisher": "Joe7M",
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "icon": "./icon/icon.png",
+    "contributes": {
+        "languages": [
+            {
+                "id": "smallbasic",
+                "aliases": [
+                    "SmallBASIC",
+                    "smallbasic"
+                ],
+                "extensions": [
+                    ".bas"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "smallbasic",
+                "scopeName": "source.smallbasic",
+                "path": "./syntaxes/smallbasic.tmLanguage.json"                
+            }
+        ],
+        "snippets": [
+            {
+                "language": "smallbasic",
+                "path": "./snippets/smallbasic.snippets.json"
+            }
+        ]
+    }
+}

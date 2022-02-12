@@ -1,0 +1,212 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "SmallBASIC",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#preprocessor"
+		},
+		{
+			"include": "#numeric"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#typemods"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#stdlib"
+		},
+		{
+			"include": "#intrinsics"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#functiondefinition"
+		},
+		{
+			"include": "#round-brackets"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "storage.type.function.smallbasic"
+				},
+				"2": {
+					"name": "entity.name.function.smallbasic"
+				},
+				"3": {
+					"name": "punctuation.definition.parameters.assmallbasicp"
+				},
+				"4": {
+					"name": "variable.parameter.function.smallbasic"
+				},
+				"5": {
+					"name": "punctuation.definition.parameters.smallbasic"
+				}
+			},
+			"match": "^\\s*((?i:func|sub))\\s*([a-zA-Z_]\\w*)\\s*(\\()([^)]*)(\\)).*\\n?",
+			"name": "meta.function.smallbasic"
+			
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "storage.type.smallbasic"
+				},
+				"2": {
+					"name": "variable.other.bfeac.smallbasic"
+				},
+				"3": {
+					"name": "meta.separator.comma.smallbasic"
+				}
+			},
+			"match": "(?i:(dim)\\s*(?:(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)\\s*(,?)))",
+			"name": "variable.other.dim.smallbasic"
+		},
+		{
+			"match": "(?i:\\s*\\b(FUNC|SUB|END SUB|END FUNC|END SELECT|END)\\b\\s*)",
+			"name": "storage.type.smallbasic"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "entity.name.function.asp"
+				}
+			},
+			"match": "(?i:(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)(?=\\(\\)?))",
+			"name": "support.function.smallbasic"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.smallbasic",
+				"match": "(?i)\\b(AS|CASE|CATCH|DATA|DECLARE|DEF|DEFINEKEY|DO|ELIF|ELSE|ELSEIF|TRY|ENDIF|FI|FILLED|FOR|GOSUB|GOTO|IF|IFF|IN|LABEL|LET|LIKE|NEXT|ON|REDIM|REPEAT|SELECT|SELF|STEP|THEN|THROW|TO|TRY|UNTIL|USE|USG|USING|WEND|WHILE)\\b"
+			}]
+		},
+		"numeric": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "(?i)\\b(\\d+\\.?\\d*([EeDd][+|-]?[0-9]*)?)|(&[Bb][01]+)|(&[Oo][0-7]+)|(&[Hh][0-9a-fA-F]+)\\b"
+			}]
+		},
+		"intrinsics": {
+			"patterns": [{
+				"name": "constant.numeric.smallbasic",
+				"match": "(?i)\\b(FALSE|MAXINT|NIL|PI|TRUE|XMAX|XPOS|YMAX|YPOS)\\b"
+			}]
+		},
+		"preprocessor": {
+			"patterns": [{
+				"name": "strong.smallbasic",
+				"match": "(?i)\\b(EXPORT|IMPORT|INCLUDE|OPTION|UNIT)\\b"
+			}]
+		},
+		"stdlib": {
+			"patterns": [{
+				"name": "keyword.other.freebasic",
+				"match": "(?i)\\b(\\?|ABS|ABSMAX|ABSMIN|ACCESS|ACOS|ACOSH|ACOT|ACOTH|ACSC|ACSCH|APPEND|ARC|ARRAY|ASC|ASEC|ASECH|ASIN|ASINH|AT|ATAN|ATAN2|ATANH|ATN|BCS|BEEP|BG|BGETC|BIN|BLOAD|BPUTC|BSAVE|CALL|CAT|CBS|CDBL|CEIL|CHAIN|CHART|CHDIR|CHMOD|CHOP|CHR|CINT|CIRCLE|CLOSE|CLS|COLOR|COMMAND|COPY|COS|COSH|COT|COTH|CREAL|CSC|CSCH|CWD|DATE|DATEDMY|DATEFMT|DEG|DELAY|DELETE|DERIV|DETERM|DIFFEQN|DIRWALK|DISCLOSE|DRAW|DRAWPOLY|EMPTY|ENCLOSE|ENV|EOF|ERASE|EXEC|EXIST|EXIT|EXP|EXPRSEQ|FILES|FIX|FLOOR|FORM|FORMAT|FRAC|FRE|FREEFILE|HEX|HOME|IMAGE|INKEY|INPUT|INSERT|INSTR|INT|INTERSECT|INVERSE|ISARRAY|ISDIR|ISFILE|ISLINK|ISMAP|ISNUMBER|ISSTRING|JOIN|JULIAN|KILL|LBOUND|LCASE|LEFT|LEFTOF|LEFTOFLAST|LEN|LINE|LINEINPUT|LINEQN|LINPUT|LOCATE|LOCK|LOF|LOG|LOG10|LOGPRINT|LOWER|LTRIM|M3APPLY|M3IDENT|M3ROTATE|M3SCALE|M3TRANS|MAX|MID|MIN|MKDIR|NOSOUND|OCT|OPEN|PAINT|PAUSE|PEN|PLAY|PLOT|POINT|POLYAREA|POLYCENT|POLYEXT|POW|PRINT|PROGLINE|PSET|PTDISTLN|PTDISTSEG|PTSIGN|RAD|RANDOMIZE|READ|RECT|RENAME|REPLACE|RESTORE|RETURN|RGB|RGBF|RIGHT|RIGHTOF|RIGHTOFLAST|RINSTR|RMDIR|RND|ROOT|ROUND|RTRIM|RUN|SBVER|SEARCH|SEC|SECH|SEEK|SEGCOS|SEGLEN|SEGSIN|SEQ|SGN|SHOWPAGE|SIN|SINH|SINPUT|SORT|SOUND|SPACE|SPC|SPLIT|SPRINT|SQR|SQUEEZE|STATMEAN|STATMEANDEV|STATSPREADP|STATSPREADS|STKDUMP|STOP|STR|STRING|SUM|SUMSQ|SWAP|TAB|TAN|TANH|TEXTHEIGHT|TEXTWIDTH|TICKS|TIME|TIMEHMS|TIMER|TIMESTAMP|TLOAD|TRANSLATE|TRIM|TROFF|TRON|TSAVE|TXTH|TXTW|UBOUND|UCASE|UPPER|VAL|VIEW|WEEKDAY|WINDOW|WRITE)\\b"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator.smallbasic",
+				"match": "(?i)\\b(AND|BAND|BOR|EQV|IMP|MOD|NAND|NOR|NOT|LSHIFT|MDL|OR|RSHIFT|XNOR|XOR)\\b"
+			}]
+		},
+		"typemods": {
+			"patterns": [{
+				"name": "support.type.smallbasic",
+				"match": "(?i)\\b(CONST|LOCAL|BYREF|DIM|REDIM)\\b"
+			}]
+		},
+		"string_escaped_char": {
+			"patterns": [
+				{
+					"match": "\\\\([\"\\\\abflnrtv']|[0-9]{1,3}|&h[0-9a-fA-Z]{1,2}|&o[0-7]{1,3}|&b[01]{1,8}|u[0-9a-fA-Z]{1,4})",
+					"name": "constant.character.escape.smallbasic"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.smallbasic",
+					"begin": "\"",
+					"end": "\"|\n"
+				},
+				{
+					"name": "string.quoted.double_escapes_off.smallbasic",
+					"begin": "\\$\"",
+					"end": "\"|\n"
+				},
+				{
+					"name": "string.quoted.double_escapes_on.smallbasic",
+					"begin": "!\"",
+					"end": "\"|\n",
+					"patterns": [
+						{
+							"include": "#string_escaped_char"
+						}
+					]
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.smallbasic",
+					"begin": "'",
+					"end": "\n"
+				},
+				{
+					"name": "comment.line.smallbasic",
+					"begin": "Rem",
+					"end": "\n"
+				},
+				{
+					"name": "comment.line.smallbasic",
+					"begin": "REM",
+					"end": "\n"
+				}
+			]
+		},
+		"round-brackets": {
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.section.round-brackets.begin.smallbasic"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.round-brackets.end.smallbasic"
+				}
+			},
+			"name": "meta.round-brackets",
+			"patterns": [
+				{
+					"include": "source.smallbasic"
+				}
+			]
+		}
+		
+	},
+	"scopeName": "source.smallbasic"
+}
