@@ -2,6 +2,8 @@
 
 This Visual Studio Code extension adds syntax coloring and snippets for the SmallBASIC language (https://smallbasic.github.io/)
 
+![Example](https://github.com/Joe7M/smallbasic.vscode.syntaxcoloring/blob/main/Screenshot.png)
+
 ## Features:
 - Syntax coloring
 - Code snippets (e.g. For ... Next, If ... Else ... EndIf)
